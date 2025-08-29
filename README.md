@@ -20,7 +20,7 @@ Before running, ensure you have:
 - [Terraform](https://developer.hashicorp.com/terraform/downloads) v1.5+
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)          
    configured with proper credentials
-- An **AWS Key Pair** (EC2) created and available in your region
+- An existing EC2 SSH key pair (ssh_key_name) in the target region
 - AWS Configure with credentials 
 
 ---
@@ -38,3 +38,40 @@ cluster_version  = "1.29"                 # Kubernetes version for the EKS clust
 ```
 ---
 
+## Apply Instructions
+
+Follow these steps to deploy your EKS cluster using Terraform:
+
+### 1. Initialize Terraform
+
+```bash
+terraform init
+```
+### 2. Validate the Configuration
+
+```bash
+terraform validate
+```
+Checks whether your Terraform configuration is syntactically valid and internally consistent.
+
+### 3. Preview the Changes
+
+```bash
+terraform plan -var-file="terraform.tfvars"
+```
+
+Displays the execution plan, showing which resources will be created, updated, or destroyed.
+
+### 4. Apply the Configuration
+
+```bash 
+terraform apply -var-file="terraform.tfvars"
+```
+
+Creates the EKS cluster and associated resources on AWS. Confirm the apply when prompted.
+
+### 5. Access the Cluster
+
+After successful deployment, Terraform outputs details of the EKS cluster, including the endpoint and instructions to configure your kubeconfig for kubectl access.
+
+---
