@@ -1,5 +1,14 @@
 ## EKS Setup with Terraform
 
+![View Only](https://img.shields.io/badge/license-view--only-red)
+![Status](https://img.shields.io/badge/usage-portfolio%20only-blue)
+
+> ⚠️ **Notice:** This repository is made publicly available for **portfolio evaluation purposes only**.  
+> **You are not permitted to copy, reuse, distribute, or modify this code** in any form.  
+> All rights are reserved by the author. Please contact [Naveen R](naveenramlu28@gmail.com) for permission.
+
+---
+
 This repository provisions an **Amazon EKS cluster** using Terraform.  
 The setup follows a **modular approach** with separate modules for networking, IAM, security groups, and the EKS cluster itself.
 
