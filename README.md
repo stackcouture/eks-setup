@@ -1,11 +1,12 @@
-# EKS Setup with Terraform
+## EKS Setup with Terraform
 
 This repository provisions an **Amazon EKS cluster** using Terraform.  
 The setup follows a **modular approach** with separate modules for networking, IAM, security groups, and the EKS cluster itself.
 
 ---
 
-## Features
+### Features
+
 - VPC creation with public subnets across multiple AZs
 - Internet Gateway + Route Tables
 - Security Groups for EKS cluster & worker nodes
@@ -15,7 +16,7 @@ The setup follows a **modular approach** with separate modules for networking, I
 
 ---
 
-## Prerequisites
+### Prerequisites
 Before running, ensure you have:
 - [Terraform](https://developer.hashicorp.com/terraform/downloads) v1.5+
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)          
@@ -25,7 +26,7 @@ Before running, ensure you have:
 
 ---
 
-## Configuration
+### Configuration
 
 Before applying the Terraform code, update the `terraform.tfvars` file with your environment-specific values:
 
@@ -38,23 +39,23 @@ cluster_version  = "1.29"                 # Kubernetes version for the EKS clust
 ```
 ---
 
-## Apply Instructions
+### Apply Instructions
 
 Follow these steps to deploy your EKS cluster using Terraform:
 
-### 1. Initialize Terraform
+#### 1. Initialize Terraform
 
 ```bash
 terraform init
 ```
-### 2. Validate the Configuration
+#### 2. Validate the Configuration
 
 ```bash
 terraform validate
 ```
 Checks whether your Terraform configuration is syntactically valid and internally consistent.
 
-### 3. Preview the Changes
+#### 3. Preview the Changes
 
 ```bash
 terraform plan -var-file="terraform.tfvars"
@@ -62,7 +63,7 @@ terraform plan -var-file="terraform.tfvars"
 
 Displays the execution plan, showing which resources will be created, updated, or destroyed.
 
-### 4. Apply the Configuration
+#### 4. Apply the Configuration
 
 ```bash 
 terraform apply -var-file="terraform.tfvars"
@@ -70,8 +71,15 @@ terraform apply -var-file="terraform.tfvars"
 
 Creates the EKS cluster and associated resources on AWS. Confirm the apply when prompted.
 
-### 5. Access the Cluster
+#### 5. Access the Cluster
 
 After successful deployment, Terraform outputs details of the EKS cluster, including the endpoint and instructions to configure your kubeconfig for kubectl access.
+
+---
+
+### License
+
+This project is provided under a **view-only** license for review and portfolio purposes.  
+See the [LICENSE](./LICENSE) file for details.
 
 ---
